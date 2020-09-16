@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Origin isolation demos: same origin mismatch 2</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+<header>
+  <h1>Origin isolation demos</h1>
+  <h2>Same-origin mismatch 2</h2>
+</header>
+
+<main>
+  <p>The following <em>same-origin</em> iframe is served with an <code>Origin-Isolation</code> header, but this page itself is not. So, neither page will be isolated, but in Chrome at least, this will produce a console warning.</p>
+
+  <button id="send">Try to send a <code>SharedArrayBuffer</code></button>
+  <button id="sync-script">Try to sychronously script the iframe</button>
+
+  <iframe src="/sub-with-header.html"></iframe>
+
+  <pre id="output"></pre>
+  <script type="module" src="outer-script.mjs"></script>
+</main>
+
+<footer>
+  <a href="https://github.com/domenic/origin-isolation-test.com">Source and demo index</a>
+</footer>

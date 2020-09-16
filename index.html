@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Origin isolation demos: the basics</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+<header>
+  <h1>Origin isolation demos</h1>
+  <h2>The basics</h2>
+</header>
+
+<main>
+  <p>If your browser supports origin isolation, then following iframe:</p>
+
+  <ul>
+    <li>should be in a separate process; check with, e.g., the Chrome Task Manager, <kbd>Shift+Esc</kbd>.</li>
+    <li>when you click the SharedArrayBuffer button, should display that it got a <code>messageerror</code> event.</li>
+    <li>when you click the sync script button, should display an error.</li>
+  </ul>
+
+  <p>Note that the iframe does <em>not</em> send the <code>Origin-Isolation</code> header. This demo shows how the outer page can isolate itself, even without the cooperation of the iframe.</p>
+
+  <button id="send">Try to send a <code>SharedArrayBuffer</code></button>
+  <button id="sync-script">Try to sychronously script the iframe</button>
+
+  <iframe src="https://sub.origin-isolation-test.com/sub.html"></iframe>
+
+  <pre id="output"></pre>
+  <script type="module" src="outer-script.mjs"></script>
+</main>
+
+<footer>
+  <a href="https://github.com/domenic/origin-isolation-test.com">Source and demo index</a>
+</footer>

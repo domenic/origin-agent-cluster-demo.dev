@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Origin isolation sub-page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+<header>
+  <h1>Origin isolation sub-page</h1>
+</header>
+
+<main>
+  <button id="sync-script">Try to sychronously script the parent</button>
+
+  <pre id="output"></pre>
+</main>
+
+<script type="module">
+const output = document.querySelector("#output");
+const syncScript = document.querySelector("#sync-script");
+
+window.onmessage = e => {
+  output.textContent += `Got message: ${e.data}\n`;
+};
+
+window.onmessageerror = e => {
+  output.textContent += `Got messageerror\n`;
+};
+
+syncScript.onclick = () => {
+  try {
+    parent.document.querySelector("#output").textContent += `Was able to script the parent\n`;
+  } catch (e) {
+    output.textContent += `Failed to script the parent: ${e.message}\n`;
+  }
+};
+
+output.textContent += `window.originIsolated: ${window.originIsolated}\n`;
+
+document.domain = "origin-isolation-test.com";
+</script>
