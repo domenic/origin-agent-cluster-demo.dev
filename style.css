@@ -26,7 +26,7 @@ main {
 footer {
   text-align: center;
   border-top: 1px solid gray;
-  margin: 0 calc(-1 * var(--root-padding));
+  margin: 30px calc(-1 * var(--root-padding)) 0;
   padding: var(--root-padding);
 }
 

@@ -5,18 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 <style>
-  #resizable-container {
+  .resizable-container {
     background: pink;
     width: 300px;
     height: 300px;
-    resize: both;
-    overflow: scroll;
   }
-  #resizable-container > iframe {
+  .resizable-container > iframe {
     width: 100%;
     height: 100%;
     margin: 0;
     border: 0;
+  }
+
+  .resizable-container.auto {
+    overflow: scroll;
+    resize: both;
+  }
+
+  .resizable-container.manual {
+    position: relative;
+  }
+  .resizable-container.manual > .grabber {
+    width: 10px;
+    height: 10px;
+    background: blue;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: se-resize;
   }
 </style>
 
@@ -26,21 +42,45 @@
 </header>
 
 <main>
-  <p>This page has an iframe embedded in a resizable container <code>&lt;div></code>. The iframe's CSS makes it take up all of its container.</p>
+  <p>This page has iframes embedded in resizable container <code>&lt;div></code>s. The iframes' CSS makes them take up all of their container.</p>
 
-  <h2>Cross-origin</h2>
+  <h2>Using CSS-powered resizing</h2>
+
+  <p>These versions use the CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/resize"><code>resize</code></a> property to allow resizing the outer <code>&lt;div></code>.</p>
+
+  <h3>Cross-origin</h3>
 
   <p>This frame is likely to end up in a different process.</p>
 
-  <div id="resizable-container">
+  <div class="resizable-container auto">
     <iframe src="https://sub.origin-isolation-test.com/sub-with-header.html"></iframe>
   </div>
 
-  <h2>Same-origin</h2>
+  <h3>Same-origin</h3>
 
   <p>This frame will end up in the same process.</p>
 
-  <div id="resizable-container">
+  <div class="resizable-container auto">
+    <iframe src="/sub-with-header.html"></iframe>
+  </div>
+
+  <h2>Using JS-powered resizing</h2>
+
+  <p>These versions use JavaScript to perform the resizing. Grab the blue handle.</p>
+
+  <h3>Cross-origin</h3>
+
+  <p>This frame is likely to end up in a different process.</p>
+
+  <div class="resizable-container manual">
+    <iframe src="https://sub.origin-isolation-test.com/sub-with-header.html"></iframe>
+  </div>
+
+  <h3>Same-origin</h3>
+
+  <p>This frame will end up in the same process.</p>
+
+  <div class="resizable-container manual">
     <iframe src="/sub-with-header.html"></iframe>
   </div>
 </main>
@@ -48,3 +88,37 @@
 <footer>
   <a href="https://github.com/domenic/origin-isolation-test.com">Source and demo index</a>
 </footer>
+
+<script type="module">
+  const els = document.querySelectorAll(".resizable-container.manual");
+
+  for (const el of els) {
+    const grabber = document.createElement('div');
+    grabber.className = 'grabber';
+    el.append(grabber);
+    grabber.addEventListener('mousedown', startDrag);
+  }
+
+  let resizingElement, startX, startY, startWidth, startHeight;
+
+  function startDrag(e) {
+    resizingElement = e.target.parentElement;
+    startX = e.clientX;
+    startY = e.clientY;
+    startWidth = parseInt(getComputedStyle(resizingElement).width, 10);
+    startHeight = parseInt(getComputedStyle(resizingElement).height, 10);
+
+    document.documentElement.addEventListener('mousemove', doDrag);
+    document.documentElement.addEventListener('mouseup', stopDrag);
+  }
+
+  function doDrag(e) {
+    resizingElement.style.width = (startWidth + e.clientX - startX) + 'px';
+    resizingElement.style.height = (startHeight + e.clientY - startY) + 'px';
+  }
+
+  function stopDrag() {
+    document.documentElement.removeEventListener('mousemove', doDrag);
+    document.documentElement.removeEventListener('mouseup', stopDrag);
+  }
+</script>
