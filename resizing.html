@@ -28,8 +28,20 @@
 <main>
   <p>This page has an iframe embedded in a resizable container <code>&lt;div></code>. The iframe's CSS makes it take up all of its container.</p>
 
+  <h2>Cross-origin</h2>
+
+  <p>This frame is likely to end up in a different process.</p>
+
   <div id="resizable-container">
     <iframe src="https://sub.origin-isolation-test.com/sub-with-header.html"></iframe>
+  </div>
+
+  <h2>Same-origin</h2>
+
+  <p>This frame will end up in the same process.</p>
+
+  <div id="resizable-container">
+    <iframe src="/sub-with-header.html"></iframe>
   </div>
 </main>
 
