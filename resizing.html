@@ -25,6 +25,10 @@
   .resizable-container.manual {
     position: relative;
   }
+  .resizable-container.manual > iframe {
+    pointer-events: none;
+  }
+
   .resizable-container.manual > .grabber {
     width: 10px;
     height: 10px;
@@ -66,7 +70,7 @@
 
   <h2>Using JS-powered resizing</h2>
 
-  <p>These versions use JavaScript to perform the resizing. Grab the blue handle.</p>
+  <p>These versions use JavaScript to perform the resizing. Grab the blue handle. Note the iframes have <code>pointer-events: none</code> on them to allow us to capture <code>mousemove</code> events, so their contents are not interactive.</p>
 
   <h3>Cross-origin</h3>
 
