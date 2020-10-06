@@ -14,5 +14,8 @@
 /sub-with-header.html
   Origin-Isolation: ?1
 
+/resizing.html
+  Origin-Isolation: ?1
+
 /bad-header.html
   Origin-Isolation: 5

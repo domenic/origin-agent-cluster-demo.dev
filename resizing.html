@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Origin isolation demos: resizing</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<style>
+  #resizable-container {
+    background: pink;
+    width: 300px;
+    height: 300px;
+    resize: both;
+    overflow: scroll;
+  }
+  #resizable-container > iframe {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+  }
+</style>
+
+<header>
+  <h1>Origin isolation demos</h1>
+  <h2>Resizing an isolated iframe</h2>
+</header>
+
+<main>
+  <p>This page has an iframe embedded in a resizable container <code>&lt;div></code>. The iframe's CSS makes it take up all of its container.</p>
+
+  <div id="resizable-container">
+    <iframe src="https://sub.origin-isolation-test.com/sub-with-header.html"></iframe>
+  </div>
+</main>
+
+<footer>
+  <a href="https://github.com/domenic/origin-isolation-test.com">Source and demo index</a>
+</footer>
