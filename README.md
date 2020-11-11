@@ -7,3 +7,4 @@ This repository hosts the demos available at <https://origin-isolation-test.com/
 * <https://origin-isolation-test.com/mismatch-2.html>
 * <https://origin-isolation-test.com/bad-header.html>
 * <https://origin-isolation-test.com/resizing.html>
+* <https://origin-isolation-test.com/no-ot.html>
