@@ -13,7 +13,7 @@
 <main>
   <p>The following <em>same-origin</em> iframe is served with no <code>Origin-Isolation</code> header, but this page itself has one. So, both pages will get origin-isolated, but in Chrome at least, this will produce a console warning.</p>
 
-  <button id="send">Try to send a <code>SharedArrayBuffer</code></button>
+  <button id="send">Try to send a <code>WebAssembly.Module</code></button>
   <button id="sync-script">Try to sychronously script the iframe</button>
 
   <iframe src="/sub.html"></iframe>

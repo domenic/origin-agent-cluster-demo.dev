@@ -15,13 +15,13 @@
 
   <ul>
     <li>should be in a separate process; check with, e.g., the Chrome Task Manager, <kbd>Shift+Esc</kbd>.</li>
-    <li>when you click the SharedArrayBuffer button, should display that it got a <code>messageerror</code> event.</li>
+    <li>when you click the WebAssembly.Module button, should display that it got a <code>messageerror</code> event.</li>
     <li>when you click the sync script button, should display an error.</li>
   </ul>
 
   <p>Note that the iframe does <em>not</em> send the <code>Origin-Isolation</code> header. This demo shows how the outer page can isolate itself, even without the cooperation of the iframe.</p>
 
-  <button id="send">Try to send a <code>SharedArrayBuffer</code></button>
+  <button id="send">Try to send a <code>WebAssembly.Module</code></button>
   <button id="sync-script">Try to sychronously script the iframe</button>
 
   <iframe src="https://sub.origin-isolation-test.com/sub.html"></iframe>

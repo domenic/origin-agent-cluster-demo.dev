@@ -2,8 +2,9 @@ const send = document.querySelector("#send");
 const output = document.querySelector("#output");
 const syncScript = document.querySelector("#sync-script");
 
-send.onclick = () => {
-  frames[0].postMessage(new SharedArrayBuffer(), "*");
+send.onclick = async () => {
+  const module = await WebAssembly.compileStreaming(fetch("simple.wasm"));
+  frames[0].postMessage(module, "*");
 };
 
 syncScript.onclick = () => {

@@ -13,7 +13,7 @@
 <main>
   <p>This page sends a bad value for the <code>Origin-Isolation</code> header. So, nothing gets origin-isolated, and in Chrome at least, this will produce a console warning.</p>
 
-  <button id="send">Try to send a <code>SharedArrayBuffer</code></button>
+  <button id="send">Try to send a <code>WebAssembly.Module</code></button>
   <button id="sync-script">Try to sychronously script the iframe</button>
 
   <iframe src="https://sub.origin-isolation-test.com/sub.html"></iframe>
