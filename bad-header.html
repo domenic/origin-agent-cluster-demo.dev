@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Origin isolation demos: bad header</title>
+<title>OKAC demos: bad header</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
 
 <header>
-  <h1>Origin isolation demos</h1>
+  <h1>Origin-keyed agent cluster demos</h1>
   <h2>Bad header</h2>
 </header>
 
 <main>
-  <p>This page sends a bad value for the <code>Origin-Isolation</code> header. So, nothing gets origin-isolated, and in Chrome at least, this will produce a console warning.</p>
+  <p>This page sends a bad value for the <code>Origin-Agent-Cluster</code> header. So, nothing gets origin-keyed, and in Chrome at least, this will produce a console warning.</p>
 
   <button id="send">Try to send a <code>WebAssembly.Module</code></button>
   <button id="sync-script">Try to sychronously script the iframe</button>

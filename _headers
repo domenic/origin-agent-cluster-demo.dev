@@ -2,24 +2,16 @@
   Access-Control-Allow-Origin: *
 
 /
-  Origin-Isolation: ?1
-  Origin-Trial: Alg9jBAj9DhRlgxoAdudFFCaQMK2yBox/JfxelzBrBDKBzoDRR4FgZ6n8YUjGS8rWBbJyx5kqxJgASK31IZ03QQAAAB7eyJvcmlnaW4iOiJodHRwczovL29yaWdpbi1pc29sYXRpb24tdGVzdC5jb206NDQzIiwiZmVhdHVyZSI6Ik9yaWdpbklzb2xhdGlvbkhlYWRlciIsImV4cGlyeSI6MTYwNzAwNDc4NiwiaXNTdWJkb21haW4iOnRydWV9
+  Origin-Agent-Cluster: ?1
 
 /mismatch-1.html
-  Origin-Isolation: ?1
-  Origin-Trial: Alg9jBAj9DhRlgxoAdudFFCaQMK2yBox/JfxelzBrBDKBzoDRR4FgZ6n8YUjGS8rWBbJyx5kqxJgASK31IZ03QQAAAB7eyJvcmlnaW4iOiJodHRwczovL29yaWdpbi1pc29sYXRpb24tdGVzdC5jb206NDQzIiwiZmVhdHVyZSI6Ik9yaWdpbklzb2xhdGlvbkhlYWRlciIsImV4cGlyeSI6MTYwNzAwNDc4NiwiaXNTdWJkb21haW4iOnRydWV9
+  Origin-Agent-Cluster: ?1
 
 /sub-with-header.html
-  Origin-Isolation: ?1
-  Origin-Trial: Alg9jBAj9DhRlgxoAdudFFCaQMK2yBox/JfxelzBrBDKBzoDRR4FgZ6n8YUjGS8rWBbJyx5kqxJgASK31IZ03QQAAAB7eyJvcmlnaW4iOiJodHRwczovL29yaWdpbi1pc29sYXRpb24tdGVzdC5jb206NDQzIiwiZmVhdHVyZSI6Ik9yaWdpbklzb2xhdGlvbkhlYWRlciIsImV4cGlyeSI6MTYwNzAwNDc4NiwiaXNTdWJkb21haW4iOnRydWV9
+  Origin-Agent-Cluster: ?1
 
 /resizing.html
-  Origin-Isolation: ?1
-  Origin-Trial: Alg9jBAj9DhRlgxoAdudFFCaQMK2yBox/JfxelzBrBDKBzoDRR4FgZ6n8YUjGS8rWBbJyx5kqxJgASK31IZ03QQAAAB7eyJvcmlnaW4iOiJodHRwczovL29yaWdpbi1pc29sYXRpb24tdGVzdC5jb206NDQzIiwiZmVhdHVyZSI6Ik9yaWdpbklzb2xhdGlvbkhlYWRlciIsImV4cGlyeSI6MTYwNzAwNDc4NiwiaXNTdWJkb21haW4iOnRydWV9
+  Origin-Agent-Cluster: ?1
 
 /bad-header.html
-  Origin-Isolation: 5
-  Origin-Trial: Alg9jBAj9DhRlgxoAdudFFCaQMK2yBox/JfxelzBrBDKBzoDRR4FgZ6n8YUjGS8rWBbJyx5kqxJgASK31IZ03QQAAAB7eyJvcmlnaW4iOiJodHRwczovL29yaWdpbi1pc29sYXRpb24tdGVzdC5jb206NDQzIiwiZmVhdHVyZSI6Ik9yaWdpbklzb2xhdGlvbkhlYWRlciIsImV4cGlyeSI6MTYwNzAwNDc4NiwiaXNTdWJkb21haW4iOnRydWV9
-
-/no-ot.html
-  Origin-Isolation: ?1
+  Origin-Agent-Cluster: 5

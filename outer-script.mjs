@@ -15,6 +15,6 @@ syncScript.onclick = () => {
   }
 };
 
-output.textContent += `window.originIsolated: ${window.originIsolated}\n`;
+output.textContent += `window.originAgentCluster: ${window.originAgentCluster}\n`;
 
 document.domain = "origin-isolation-test.com";
