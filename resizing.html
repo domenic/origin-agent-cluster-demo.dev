@@ -38,6 +38,10 @@
     bottom: 0;
     cursor: se-resize;
   }
+
+  .resizable-container.custom-background-matching {
+    background: linear-gradient(to bottom, black, black 40px, white 40px, white);
+  }
 </style>
 
 <header>
@@ -86,6 +90,24 @@
 
   <div class="resizable-container manual">
     <iframe src="/sub-with-header.html"></iframe>
+  </div>
+
+  <h2>Mitigation using better backgrounds</h2>
+
+  <p>This version also uses JS-powered resizing. But, it shows how in a more-realistic scenario than the pink background, we can try to mitigate this by using custom background images in the outer page.</p>
+
+  <h3>Cross-origin with no custom background</h3>
+
+  <p>This frame is likely to end up in a different process. Note how the header lags behind when resizing.</p>
+
+  <div class="resizable-container manual custom-background-white">
+    <iframe src="https://sub.origin-isolation-test.com/background-pattern.html"></iframe>
+  </div>
+
+  <p>This frame is the same as the last one. However, the <code>&lt;div></code> surrounding it has a background applied to match the iframe, so the resizing is less jarring.</p>
+
+  <div class="resizable-container manual custom-background-matching">
+    <iframe src="https://sub.origin-isolation-test.com/background-pattern.html"></iframe>
   </div>
 </main>
 
