@@ -42,6 +42,9 @@
   .resizable-container.custom-background-matching {
     background: linear-gradient(to bottom, black, black 40px, white 40px, white);
   }
+  .resizable-container.custom-background-white {
+    background: white;
+  }
 </style>
 
 <header>
@@ -92,19 +95,39 @@
     <iframe src="/sub-with-header.html"></iframe>
   </div>
 
-  <h2>Mitigation using better backgrounds</h2>
+  <h2>Mitigation explorations</h2>
 
-  <p>This version also uses JS-powered resizing. But, it shows how in a more-realistic scenario than the pink background, we can try to mitigate this by using custom background images in the outer page.</p>
+  <p>These versions also uses JS-powered resizing. They show how we can try to mitigate the problem by using custom background images in the outer page.</p>
+
+  <p>If a browser implements a good "checkerboarding" algorithm, it could make "Cross-origin with no custom background" look "Cross-origin with a solid-color background", without the developer having to do anything special. (For Chromium, that's <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=1174279">bug 1174279</a>.) But it would be much harder to make "Cross-origin with no custom background" look like "Cross-origin with a custom background".</p>
+
+  <h3>Same-origin (no custom background)</h3>
+
+  <p>This should give a no-lag experience while resizing.</p>
+
+  <div class="resizable-container manual">
+    <iframe src="/background-pattern.html"></iframe>
+  </div>
 
   <h3>Cross-origin with no custom background</h3>
 
-  <p>This frame is likely to end up in a different process. Note how the header lags behind when resizing.</p>
+  <p>Note how the header lags behind when resizing, and the pink background shows through.</p>
+
+  <div class="resizable-container manual">
+    <iframe src="https://sub.origin-isolation-test.com/background-pattern.html"></iframe>
+  </div>
+
+  <h3>Cross-origin with a solid-color background</h3>
+
+  <p>Here, the <code>&lt;div></code> surrounding the frame has a white background, instead of pink.</p>
 
   <div class="resizable-container manual custom-background-white">
     <iframe src="https://sub.origin-isolation-test.com/background-pattern.html"></iframe>
   </div>
 
-  <p>This frame is the same as the last one. However, the <code>&lt;div></code> surrounding it has a background applied to match the iframe, so the resizing is less jarring.</p>
+  <h3>Cross-origin with a custom background</h3>
+
+  <p>Here, the <code>&lt;div></code> surrounding the frame has a background applied to match the iframe.</p>
 
   <div class="resizable-container manual custom-background-matching">
     <iframe src="https://sub.origin-isolation-test.com/background-pattern.html"></iframe>
