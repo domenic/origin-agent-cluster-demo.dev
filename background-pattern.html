@@ -12,7 +12,6 @@ body {
   color: black;
 }
 header {
-  background: black;
   color: white;
   height: 40px;
   margin: 0 0 20px 0;
@@ -32,5 +31,8 @@ h1 {
   <h1>A header</h1>
   <span class="icon">⛄</span>
 </header>
+<script>
+document.querySelector("header").style.background = "linear-gradient(to bottom, black, gray)" + ",linear-gradient(to bottom, black, gray)".repeat(40_000);
+</script>
 
 <p>The body</p>
