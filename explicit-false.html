@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>OKAC demos: explicit ?0</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+
+<header>
+  <h1>Origin-keyed agent cluster demos</h1>
+  <h2>Explicit ?0</h2>
+</header>
+
+<main>
+  <p>This page sends <code>?0</code>, i.e. false, for the <code>Origin-Agent-Cluster</code> header. The subframe behavior will vary depending on what you choose.</p>
+
+  <button id="send">Try to send a <code>WebAssembly.Module</code></button>
+  <button id="sync-script">Try to sychronously script the iframe</button>
+
+  <label>
+    Choose a subframe behavior:
+    <select id="subframe-selector">
+      <option value="sub.html">No header, same-origin</option>
+      <option value="https://sub.origin-isolation-test.com/sub.html">No header, cross-origin</option>
+      <option value="sub-explicit-false.html">Explicit ?0, same-origin</option>
+      <option value="https://sub.origin-isolation-test.com/sub-explicit-false.html">Explicit ?0, cross-origin</option>
+      <option value="sub-with-header.html">Explicit ?1, same-origin</option>
+      <option value="https://sub.origin-isolation-test.com/sub-with-header.html">Explicit ?1, cross-origin</option>
+    </select>
+  </label>
+
+  <p>Remember that you may need to start a fresh tab and copy-paste the current URL into it to perform some tests, after changing the dropdown.</p>
+
+  <iframe></iframe>
+
+  <pre id="output"></pre>
+  <script type="module" src="outer-script.mjs"></script>
+</main>
+
+<footer>
+  <a href="https://github.com/domenic/origin-isolation-test.com">Source and demo index</a>
+</footer>

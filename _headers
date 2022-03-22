@@ -1,6 +1,7 @@
 /*
   Access-Control-Allow-Origin: *
 
+
 /
   Origin-Agent-Cluster: ?1
 
@@ -12,6 +13,14 @@
 
 /resizing.html
   Origin-Agent-Cluster: ?1
+
+
+/explicit-false.html
+  Origin-Agent-Cluster: ?0
+
+/sub-explicit-false.html
+  Origin-Agent-Cluster: ?0
+
 
 /bad-header.html
   Origin-Agent-Cluster: 5
