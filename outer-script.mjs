@@ -39,4 +39,4 @@ function replaceSubframe(frameURL) {
 
 output.textContent += `window.originAgentCluster: ${window.originAgentCluster}\n`;
 
-document.domain = "origin-isolation-test.com";
+document.domain = "origin-agent-cluster-demo.dev";
